@@ -202,3 +202,26 @@ section {
     transition: transform 0.3s ease, color 0.3s ease; /* Suaviza el cambio */
     transform: scale(1.1); /* Aumenta el tamaño del texto un 10% */
 }
+
+.animated-text {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    display: none;  /* Asegura que el texto no se muestre por defecto */
+}
+
+.animated-text.show {
+    opacity: 1;
+    display: block;  /* Muestra el texto cuando se añade la clase 'show' */
+}
+
+@media (max-width: 768px) {
+    .animated-text {
+        font-size: 1.2rem;  /* Tamaño de texto más pequeño para pantallas pequeñas */
+    }
+}
+
+@media (min-width: 769px) {
+    .animated-text {
+        font-size: 2rem;  /* Tamaño de texto más grande para pantallas grandes */
+    }
+}

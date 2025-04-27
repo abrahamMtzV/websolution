@@ -8,7 +8,54 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="icon" href="images/websolutionlogo.jpg" type="image/png">
-    
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const paragraphs = document.querySelectorAll('.animated-text');
+            let currentIndex = 0;
+            const totalParagraphs = paragraphs.length;
+        
+            // Función para verificar el tamaño de la pantalla
+            function getItemsToShow() {
+                if (window.innerWidth <= 768) {
+                    return 1;  // Mostrar 1 párrafo a la vez en pantallas pequeñas
+                } else {
+                    return 2;  // Mostrar 2 párrafos a la vez en pantallas grandes
+                }
+            }
+        
+            // Función para mostrar los párrafos
+            function showParagraphs() {
+                const itemsToShow = getItemsToShow();  // Obtener cuántos párrafos mostrar
+                const nextIndex = Math.min(currentIndex + itemsToShow, totalParagraphs);
+        
+                // Primero ocultamos los párrafos anteriores
+                paragraphs.forEach(p => p.classList.remove('show'));
+        
+                // Luego mostramos los nuevos párrafos
+                for (let i = currentIndex; i < nextIndex; i++) {
+                    paragraphs[i].classList.add('show');  // Mostrar el párrafo
+                }
+        
+                currentIndex = nextIndex;
+        
+                // Si no hay más párrafos por mostrar, reiniciar
+                if (currentIndex >= totalParagraphs) {
+                    currentIndex = 0;
+                }
+            }
+        
+            // Mostrar los párrafos automáticamente cada 4 segundos
+            setInterval(showParagraphs, 9000);
+        
+            // Inicializar la primera visualización de párrafos
+            showParagraphs();
+        });
+        
+        
+    </script>
 </head>
 <body>
     <header class="bg-dark text-white py-2 sticky-top">
@@ -67,20 +114,14 @@
     
     <section id="nosotros" class="text-white py-5" style="background-image: url(images/servidor.png); background-size: cover; background-position: center;">
         <div class="container-fluid d-flex gap-5 p-5 rounded-5" 
-        style="max-width: 60%; 
-                    text-align: justify; 
-                    font-family: 'Fjalla One', sans-serif; 
-                    margin-top: 40px; 
-                    font-size: xx-large; 
-                    background: rgba(108, 117, 125, 0.6); /* secondary color en semitransparente */
-                    backdrop-filter: blur(10px); /* efecto difuminado */
-                    -webkit-backdrop-filter: blur(10px); /* soporte en Safari */
-                    transition: all 0.5s ease-in-out;">
-        <p class="animated-text">Somos un equipo de jóvenes profesionales dedicados a impulsar el crecimiento de tu negocio en el mundo digital.</p>
-        <p class="animated-text"><br>|</p>
-        <p class="animated-text">Queremos ser la fachada digital de tu negocio, ofreciéndote una página web 100% responsiva y adaptable a cualquier dispositivo.</p>
-    </div>
-</section>
+        style="max-width: 60%; text-align: justify; font-family: 'Fjalla One', sans-serif; margin-top: 40px; font-size: xx-large; background: rgba(108, 117, 125, 0.6); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: all 0.5s ease-in-out;">
+            <p class="animated-text">Somos un equipo de jóvenes profesionales dedicados a impulsar el crecimiento de tu negocio en el mundo digital.</p>
+            <p class="animated-text">Queremos ser la fachada digital de tu negocio, ofreciéndote una página web 100% responsiva y adaptable a cualquier dispositivo.</p>
+            <p class="animated-text">Nos comprometemos a ofrecerte una solución personalizada que se adapte a las necesidades específicas de tu empresa.</p>
+            <p class="animated-text">Contamos con un equipo altamente capacitado para brindarte soporte continuo y ayudarte a alcanzar tus objetivos digitales.</p>
+        </div>
+    </section>
+    
 
 
 <section id="paquetes" style="font-family: Fjalla One;">
@@ -185,7 +226,7 @@
 </section>
 
 <div style="text-align: center;" class="bg-white py-5">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3596.0015525848735!2d-100.35143011767705!3d25.671243254105846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662bf1d273b736b%3A0xd3c91464ee19059a!2sWeWork%20Espacio%20de%20Oficinas%20%26%20Coworking!5e0!3m2!1ses!2smx!4v1745720307220!5m2!1ses!2smx" width="70%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3596.0015525848735!2d-100.35143011767705!3d25.671243254105846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662bf1d273b736b%3A0xd3c91464ee19059a!2sWeWork%20Espacio%20de%20Oficinas%20%26%20Coworking!5e0!3m2!1ses!2smx!4v1745720307220!5m2!1ses!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded"></iframe>
 </div>
 <footer class="bg-dark text-white py-2 text-end" style="font-size: 8pt;">
     © Diseño por Abraham Martinez, Web Solution. Todos los derechos reservados.
@@ -199,5 +240,6 @@ style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; border-radius:
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+
 </body>
 </html>
