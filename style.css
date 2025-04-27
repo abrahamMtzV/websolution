@@ -250,3 +250,17 @@ section {
         border-radius: 50%;
     }
 }
+
+/* Estilo para los botones del carrusel */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: transparent; /* Elimina el fondo gris */
+    border: none; /* Elimina cualquier borde que pueda aparecer */
+    filter: invert(1); /* Cambia el color de los iconos a blanco */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    background-color: transparent; /* Elimina el fondo del botón */
+    border: none; /* Elimina cualquier borde del botón */
+}
