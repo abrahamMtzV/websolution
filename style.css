@@ -150,11 +150,7 @@ section {
     }
   }
 
-  /* Opcional: Centrar y ajustar el carrusel */
-  .carousel-inner {
-    max-width: 100%;
-    max-height: 400px;
-  }
+
 
   /* Hacer que los textos se apilen en pantallas pequeñas */
   @media (max-width: 768px) {
