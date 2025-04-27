@@ -225,3 +225,28 @@ section {
         font-size: 2rem;  /* Tamaño de texto más grande para pantallas grandes */
     }
 }
+
+
+/* Asegurarse de que el carrusel ocupe el 100% de ancho */
+@media (max-width: 768px) {
+    .carousel-inner {
+        display: flex;
+        justify-content: center;
+    }
+
+    .carousel-item {
+        flex: 0 0 auto; /* Evita que las tarjetas se ajusten demasiado */
+        width: 100%; /* Ajuste el tamaño de las tarjetas para pantallas pequeñas */
+        margin: 0 auto;
+    }
+
+    /* Ajuste de la imagen dentro del carrusel */
+    .carousel-item img {
+        max-width: 50%;
+    }
+
+    .carousel-control-prev, .carousel-control-next {
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+    }
+}
